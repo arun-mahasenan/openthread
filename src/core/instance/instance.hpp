@@ -153,6 +153,16 @@
 #include "utils/srp_client_buffers.hpp"
 #endif // OPENTHREAD_FTD || OPENTHREAD_MTD
 
+#if OPENTHREAD_CONFIG_POWER_CONTROL_ENABLE
+#include "utils/power_control.hpp"
+#include "utils/power_control_stats.hpp"
+#endif
+
+#if OPENTHREAD_CONFIG_MLE_LINK_METRICS_INITIATOR_ENABLE || OPENTHREAD_CONFIG_MLE_LINK_METRICS_SUBJECT_ENABLE
+#include "utils/power_control_probe_sender.hpp"
+#endif
+
+
 /**
  * @addtogroup core-instance
  *
@@ -744,6 +754,14 @@ private:
     Mac::LinkRaw mLinkRaw;
 #endif
 
+#if OPENTHREAD_CONFIG_POWER_CONTROL_ENABLE
+    ot::Utils::PowerControl      mPowerControl;
+    ot::Utils::PowerControlStats mPowerControlStats;
+#if (OPENTHREAD_CONFIG_MLE_LINK_METRICS_INITIATOR_ENABLE)
+    ot::Utils::PowerControlProbeSender mPowerControlProbeSender;
+#endif
+#endif //OPENTHREAD_CONFIG_POWER_CONTROL_ENABLE
+
 #if OPENTHREAD_ENABLE_VENDOR_EXTENSION
     Extension::ExtensionBase &mExtension;
 #endif
@@ -1177,6 +1195,26 @@ template <> inline FactoryDiags::Diags &Instance::Get(void) { return mDiags; }
 #if OPENTHREAD_CONFIG_POWER_CALIBRATION_ENABLE && OPENTHREAD_CONFIG_PLATFORM_POWER_CALIBRATION_ENABLE
 template <> inline Utils::PowerCalibration &Instance::Get(void) { return mPowerCalibration; }
 #endif
+
+#if OPENTHREAD_CONFIG_POWER_CONTROL_ENABLE 
+template <> inline Utils::PowerControl &Instance::Get(void)
+{
+    return mPowerControl;
+}
+
+template <> inline Utils::PowerControlStats &Instance::Get(void)
+{
+    return mPowerControlStats;
+}
+
+#if !OPENTHREAD_RADIO && \
+    (OPENTHREAD_CONFIG_MLE_LINK_METRICS_INITIATOR_ENABLE || OPENTHREAD_CONFIG_MLE_LINK_METRICS_SUBJECT_ENABLE)
+template <> inline Utils::PowerControlProbeSender &Instance::Get(void)
+{
+    return mPowerControlProbeSender;
+}
+#endif // OPENTHREAD_CONFIG_MLE_LINK_METRICS_INITIATOR_ENABLE || OPENTHREAD_CONFIG_MLE_LINK_METRICS_SUBJECT_ENABLE
+#endif // OPENTHREAD_CONFIG_POWER_CONTROL_ENABLE
 
 //---------------------------------------------------------------------------------------------------------------------
 
