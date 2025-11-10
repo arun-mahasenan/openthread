@@ -68,7 +68,8 @@
         "OT_SRP_CLIENT": "ON",
         "OT_SRP_SERVER": "ON",
         "OT_SRP_SERVER_FAST_START_MODE": "ON",
-        "OT_UPTIME": "ON"
+        "OT_UPTIME": "ON",
+        "OT_FULL_LOGS": "ON"
       }
     }
   ],

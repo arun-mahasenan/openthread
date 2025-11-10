@@ -97,7 +97,7 @@
  * decreasing the log level from the compile time value.
  */
 #ifndef OPENTHREAD_CONFIG_LOG_LEVEL_DYNAMIC_ENABLE
-#define OPENTHREAD_CONFIG_LOG_LEVEL_DYNAMIC_ENABLE 0
+#define OPENTHREAD_CONFIG_LOG_LEVEL_DYNAMIC_ENABLE 1
 #endif
 
 /**

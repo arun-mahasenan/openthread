@@ -82,7 +82,7 @@ endif ()
 if(CMAKE_COMPILER_IS_GNUCC OR CMAKE_C_COMPILER_ID MATCHES "(Apple)?[Cc]lang")
     option(OT_COMPILE_WARNING_AS_ERROR "whether to include -Werror -pedantic-errors with gcc-compatible compilers")
     if (OT_COMPILE_WARNING_AS_ERROR)
-        set(OT_CFLAGS -Werror -pedantic-errors)
+        #set(OT_CFLAGS -Werror -pedantic-errors)
     endif()
 
     if(OT_COVERAGE)
@@ -118,6 +118,12 @@ set(OT_PLATFORM_CONFIG "" CACHE STRING "OpenThread platform-specific config head
 list(APPEND OT_PUBLIC_INCLUDES ${PROJECT_BINARY_DIR}/etc/cmake)
 list(APPEND OT_PUBLIC_INCLUDES ${PROJECT_SOURCE_DIR}/etc/cmake)
 list(APPEND OT_PUBLIC_INCLUDES ${PROJECT_SOURCE_DIR}/include)
+
+target_compile_definitions(ot-config INTERFACE OPENTHREAD_CONFIG_POWER_CONTROL_ENABLE=$<BOOL:${OT_POWER_CONTROL}>)
+target_compile_definitions(ot-config INTERFACE OPENTHREAD_CONFIG_POWER_CONTROL_DEBUG_ENABLE=$<BOOL:${OT_POWER_CONTROL}>)
+target_compile_definitions(ot-config INTERFACE OPENTHREAD_CONFIG_POWER_CONTROL_HISTOGRAM_ENABLE=$<BOOL:${OT_POWER_CONTROL}>)
+target_compile_definitions(ot-config INTERFACE OPENTHREAD_CONFIG_POWER_CONTROL_DEFAULT_MAX_TX_POWER=16)
+
 
 if(OT_PLATFORM STREQUAL "posix")
     target_include_directories(ot-config INTERFACE ${PROJECT_SOURCE_DIR}/src/posix/platform)

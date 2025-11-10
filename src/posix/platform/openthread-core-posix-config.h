@@ -138,6 +138,16 @@
 #define OPENTHREAD_CONFIG_CLI_UART_RX_BUFFER_SIZE 640
 #endif
 
+/**
+ * @def OPENTHREAD_CONFIG_POWER_CONTROL_ENABLE
+ *
+ * Define to 1 to enable Transmit Power Control support for TVOS platforms.
+ * For Non TVOS platforms, power control is handled in firmware. Host can enable/disable TPC if OPENTHREAD_CONFIG_RCP2_POWER_CONTROL_ENABLE is set
+ */
+#ifndef OPENTHREAD_CONFIG_POWER_CONTROL_ENABLE
+#define OPENTHREAD_CONFIG_POWER_CONTROL_ENABLE 1
+#endif
+
 #ifndef OPENTHREAD_CONFIG_LOG_PREPEND_UPTIME
 #define OPENTHREAD_CONFIG_LOG_PREPEND_UPTIME !OPENTHREAD_CONFIG_MULTIPLE_INSTANCE_ENABLE
 #endif
