@@ -100,7 +100,7 @@ void PowerControlProbeSender::HandleLinkMetricsReport(const otIp6Address *      
 //     neighbor = GetInstance().Get<NeighborTable>().FindNeighbor(mac, Neighbor::kInStateValid);
 
 // #if OPENTHREAD_CONFIG_POWER_CONTROL_DEBUG_ENABLE
-//     otLogInfoUtil("TPC: probe sender received report from: %02x with link margin: %u", neighbor->GetRloc16(),
+//     otLogInfoPlat("TPC: probe sender received report from: %02x with link margin: %u", neighbor->GetRloc16(),
 //                   aMetricsValues->mLinkMarginValue);
 // #endif
 

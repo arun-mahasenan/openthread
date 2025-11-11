@@ -32,6 +32,7 @@ set(COMMON_INCLUDES
 )
 
 set(COMMON_SOURCES
+    cli_power_control.cpp
     cli.cpp
     cli_bbr.cpp
     cli_br.cpp

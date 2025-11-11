@@ -291,6 +291,13 @@ Instance::Instance(void)
 #if OPENTHREAD_RADIO || OPENTHREAD_CONFIG_LINK_RAW_ENABLE
     , mLinkRaw(*this)
 #endif
+#if OPENTHREAD_CONFIG_POWER_CONTROL_ENABLE
+    , mPowerControl(*this)
+    , mPowerControlStats(*this)
+#if (OPENTHREAD_CONFIG_MLE_LINK_METRICS_INITIATOR_ENABLE)
+    , mPowerControlProbeSender(*this)
+#endif
+#endif
 #if OPENTHREAD_ENABLE_VENDOR_EXTENSION
     , mExtension(Extension::ExtensionBase::Init(*this))
 #endif

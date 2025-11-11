@@ -141,8 +141,7 @@
 /**
  * @def OPENTHREAD_CONFIG_POWER_CONTROL_ENABLE
  *
- * Define to 1 to enable Transmit Power Control support for TVOS platforms.
- * For Non TVOS platforms, power control is handled in firmware. Host can enable/disable TPC if OPENTHREAD_CONFIG_RCP2_POWER_CONTROL_ENABLE is set
+ * Define to 1 to enable Transmit Power Control support.
  */
 #ifndef OPENTHREAD_CONFIG_POWER_CONTROL_ENABLE
 #define OPENTHREAD_CONFIG_POWER_CONTROL_ENABLE 1

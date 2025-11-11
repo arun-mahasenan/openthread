@@ -778,6 +778,7 @@ openthread_core_files = [
   "utils/ping_sender.cpp",
   "utils/ping_sender.hpp",
   "utils/power_calibration.cpp",
+  "utils/power_control.cpp",
   "utils/power_calibration.hpp",
   "utils/srp_client_buffers.cpp",
   "utils/srp_client_buffers.hpp",

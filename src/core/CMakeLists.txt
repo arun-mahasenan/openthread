@@ -286,6 +286,8 @@ set(COMMON_SOURCES
     utils/power_calibration.cpp
     utils/srp_client_buffers.cpp
     utils/power_control_probe_sender.cpp
+    utils/power_control.cpp
+    utils/power_control_stats.cpp
     utils/verhoeff_checksum.cpp
 )
 

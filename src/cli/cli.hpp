@@ -85,6 +85,11 @@
 #include "common/type_traits.hpp"
 #include "instance/instance.hpp"
 
+#if OPENTHREAD_CONFIG_POWER_CONTROL_ENABLE
+#include "cli/cli_power_control.hpp"
+#endif
+
+
 namespace ot {
 
 /**

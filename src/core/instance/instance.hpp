@@ -158,6 +158,7 @@
 #include "utils/power_control_stats.hpp"
 #endif
 
+
 #if OPENTHREAD_CONFIG_MLE_LINK_METRICS_INITIATOR_ENABLE || OPENTHREAD_CONFIG_MLE_LINK_METRICS_SUBJECT_ENABLE
 #include "utils/power_control_probe_sender.hpp"
 #endif
